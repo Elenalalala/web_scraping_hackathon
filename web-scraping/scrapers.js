@@ -7,7 +7,7 @@ puppeteer.use(pluginStealth());
 async function scrapeProduct(url){
     const browser = await puppeteer.launch({
         // args: ['--no-sandbox',],
-        headless: false,
+        // headless: false,
         ignoreHTTPSErrors: true,
     
         // add this
@@ -23,6 +23,32 @@ async function scrapeProduct(url){
     const srcText = await text.jsonValue();
 
     console.log({srcText});
+
+
+      // These methods will update the state properties.
+    
+    // This function will handle the submission.
+    async function sendToDatabase() {
+      const newPerson = {name: 'Check', curPrice: {srcText}.srcText, industry: 'technology', metrics: 'hello'};
+      // When a post request is sent to the create url, we'll add a new record to the database.
+    
+      console.log(newPerson);
+      await fetch("http://localhost:5001/record/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newPerson),
+      })
+      .catch(error => {
+        window.alert(error);
+        return;
+      });
+    
+    
+    }
+
+    sendToDatabase();
 
     await browser.close();
 }
