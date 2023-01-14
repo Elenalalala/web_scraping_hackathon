@@ -3,8 +3,9 @@ import Stock from './Stock.js'
 function StockBox({userPickedStocks}) {
 
     return (
-        
-        userPickedStocks.map((stock) => <Stock stock = {stock}/>)
+        <div style={{display: 'flex'}}> 
+        {userPickedStocks ? userPickedStocks.map((stock) => <Stock stock = {stock}/>)  : ""}
+       </div>
 
     );
   }

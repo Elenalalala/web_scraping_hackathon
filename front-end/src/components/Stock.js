@@ -14,8 +14,8 @@ function Stock({stock}) {
         <div className = "stockContent">{stock.industry}</div>
 
         <div className = "stockTitle">Key metrics</div>
-        <div className = "stockContent">{stock.metrics[0][0]}</div>
-        <div className = "stockContent">{stock.metrics[0][1]}</div>
+        <div className = "stockContent">{stock.metrics}</div>
+        <div className = "stockContent">{stock.metrics}</div>
         
 
       </div>
