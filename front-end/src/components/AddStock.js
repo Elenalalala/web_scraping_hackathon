@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks}) {
     
+
    function addStock(stock){
 
     for (let i = 0; i < userPickedStocks.length; i++){
@@ -15,7 +16,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks}) {
         for (let i = 0; i < stocksDatabase.length; i++){
 
             if (stocksDatabase[i].name == stock){
-                updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]])
+                updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]]);
                 setMessage(stock + " successfully added below.");
             }
         }

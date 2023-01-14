@@ -72,3 +72,26 @@
 .addStockMain{
   margin: 10px;
 }
+
+
+
+.deleteStock{
+  position: relative;
+  background-color: lightgray;
+  width: 100%;
+  border: none;
+  color: black;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+
+}
+
+.deleteStock:hover{
+  background-color: gray;
+  color: white;
+
+  
+}

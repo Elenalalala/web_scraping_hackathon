@@ -1,10 +1,13 @@
 import Stock from './Stock.js'
 
-function StockBox({userPickedStocks}) {
+function StockBox({userPickedStocks, updateUserPickedStocks}) {
 
     return (
         <div style={{display: 'flex'}}> 
-        {userPickedStocks ? userPickedStocks.map((stock) => <Stock stock = {stock}/>)  : ""}
+        {userPickedStocks ? userPickedStocks.map((stock, idx) => 
+        <Stock stock = {stock} userPickedStocks = {userPickedStocks} 
+        updateUserPickedStocks = {updateUserPickedStocks}
+        idx = {idx}/>)  : ""}
        </div>
 
     );
