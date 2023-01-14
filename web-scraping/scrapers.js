@@ -16,8 +16,8 @@ async function scrapeProduct(url){
     const page = await browser.newPage();
     await page.goto(url,{waitUntil: 'networkidle0'});
 
-    await page.waitForXPath('//*[@id="Col1-3-Financials-Proxy"]/section/div[2]/h3/span');
-    const [el] = await page.$x('//*[@id="Col1-3-Financials-Proxy"]/section/div[2]/h3/span');
+    await page.waitForXPath('//*[@id="maincontent"]/div[2]/div[3]/div/div[2]/h2/bg-quote');
+    const [el] = await page.$x('//*[@id="maincontent"]/div[2]/div[3]/div/div[2]/h2/bg-quote');
     
     const text = await el.getProperty('textContent');
     const srcText = await text.jsonValue();
@@ -27,4 +27,4 @@ async function scrapeProduct(url){
     await browser.close();
 }
 
-scrapeProduct("https://finance.yahoo.com/quote/AAPL/financials/");
+scrapeProduct("https://www.marketwatch.com/investing/stock/aapl");
