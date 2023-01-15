@@ -7,7 +7,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks}) {
 
     for (let i = 0; i < userPickedStocks.length; i++){
 
-        if (userPickedStocks[i].name == stock){
+        if (userPickedStocks[i].name === stock){
             setMessage(stock + " was previously added. Please choose another.");
             return;
         }
@@ -15,7 +15,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks}) {
 
         for (let i = 0; i < stocksDatabase.length; i++){
 
-            if (stocksDatabase[i].name == stock){
+            if (stocksDatabase[i].name === stock){
                 updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]]);
                 setMessage(stock + " successfully added below.");
                 return;

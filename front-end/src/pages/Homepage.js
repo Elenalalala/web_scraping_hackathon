@@ -49,7 +49,7 @@ function Homepage() {
    getRecords();
  
    return;
- }, "");
+ });
 
     return (
     <div className="homepageMain">
