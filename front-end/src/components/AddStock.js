@@ -18,6 +18,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks}) {
             if (stocksDatabase[i].name == stock){
                 updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]]);
                 setMessage(stock + " successfully added below.");
+                return;
             }
         }
         
