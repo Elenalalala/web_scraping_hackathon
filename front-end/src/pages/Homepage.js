@@ -27,7 +27,7 @@ function Homepage() {
     
     const [userPickedStocks, updateUserPickedStocks] = useState([])
     const [stocksDatabase, updateStocksDatabase] = useState([])
-   
+    const [displayedIndustries, updateDisplayedIndustries] = useState({})
  
  // This method fetches the records from the database.
  useEffect(() => {
@@ -56,12 +56,14 @@ function Homepage() {
 
 
     <AddStock userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}
-    stocksDatabase = {stocksDatabase}/>
+    stocksDatabase = {stocksDatabase} displayedIndustries = {displayedIndustries} 
+    updateDisplayedIndustries = {updateDisplayedIndustries}/>
 
 
     <div className="stockHomepage">
 
-    <StockBox userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}/>
+    <StockBox userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}
+    displayedIndustries = {displayedIndustries} updateDisplayedIndustries = {updateDisplayedIndustries} />
 
 
     </div>
