@@ -1,13 +1,34 @@
 import Stock from './Stock.js'
 
-function StockBox({userPickedStocks, updateUserPickedStocks}) {
+function StockBox({userPickedStocks, updateUserPickedStocks, 
+  displayedIndustries, updateDisplayedIndustries, industry}) {
+
+    // console.log(industry);
+    // stocks.map((stock, idx) => console.log(stock));
+
+    var stocks = displayedIndustries[industry];
 
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}> 
-        {userPickedStocks ? userPickedStocks.map((stock, idx) => 
+      
+        <div> 
+        <div>{industry}</div>
+
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        {/* {userPickedStocks ? Object.entries(displayedIndustries).forEach(([stock, idx]) => 
         <Stock stock = {stock} userPickedStocks = {userPickedStocks} 
-        updateUserPickedStocks = {updateUserPickedStocks}
+        updateUserPickedStocks = {updateUserPickedStocks} displayedIndustries = {displayedIndustries}
+        updateDisplayedIndustries = {updateDisplayedIndustries}
+        idx = {idx}/>)  : ""} */}
+       
+
+        {userPickedStocks ? stocks.map((stock, idx) => 
+        <Stock stock = {stock} userPickedStocks = {userPickedStocks} 
+        updateUserPickedStocks = {updateUserPickedStocks} displayedIndustries = {displayedIndustries}
+        updateDisplayedIndustries = {updateDisplayedIndustries}
         idx = {idx}/>)  : ""}
+       </div>
+       
+       
        </div>
 
     );

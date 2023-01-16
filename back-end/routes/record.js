@@ -43,7 +43,8 @@ recordRoutes.route("/record/add").post(function (req, response) {
    name: req.body.name,
    curPrice: req.body.curPrice,
    industry: req.body.industry,
-   metrics: req.body.metrics,
+   metricsTitle: req.body.metricsTitle,
+   metricsValue: req.body.metricsValue,
  };
  db_connect.collection("records").insertOne(myobj, function (err, res) {
     console.log("1 document created");
@@ -61,7 +62,8 @@ recordRoutes.route("/update/:id").post(function (req, response) {
     name: req.body.name,
     curPrice: req.body.curPrice,
     industry: req.body.industry,
-    metrics: req.body.metrics,
+    metricsTitle: req.body.metricsTitle,
+    metricsValue: req.body.metricsValue,
    },
  };
  db_connect

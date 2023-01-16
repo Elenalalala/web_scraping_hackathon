@@ -1,17 +1,26 @@
 
 
-function Stock({stock, userPickedStocks, idx, updateUserPickedStocks}) {
+function Stock({stock, userPickedStocks, idx, updateUserPickedStocks, 
+  displayedIndustries, updateDisplayedIndustries}) {
 
   function deleteStock(e){
     userPickedStocks.splice(idx, 1);
     updateUserPickedStocks(userPickedStocks =>[...userPickedStocks]);
+    var copyOfDisplayedIndustries = displayedIndustries;
+    var industryArray = copyOfDisplayedIndustries[stock.industry];
+    for (let i = 0; i < industryArray.length; i++){
+      if (industryArray[i].name == stock.name){
+        industryArray.splice(i, 1);
+        break;
+      }
+    }
+    updateDisplayedIndustries(copyOfDisplayedIndustries);
     console.log(userPickedStocks);
+    console.log(displayedIndustries);
   }
 
     return (
       <div className="stockMain">
-
-
   
         <div className = "stockTitle">Stock Name</div>
         <div className = "stockContent">{stock.name}</div>
@@ -23,8 +32,8 @@ function Stock({stock, userPickedStocks, idx, updateUserPickedStocks}) {
         <div className = "stockContent">{stock.industry}</div>
 
         <div className = "stockTitle">Key metrics</div>
-        <div className = "stockContent">{stock.metrics}</div>
-        <div className = "stockContent">{stock.metrics}</div>
+        <div className = "stockContent">{stock.metricsTitle}</div>
+        <div className = "stockContent">{stock.metricsValue}</div>
         
         <button className="deleteStock" onClick={deleteStock}>Remove</button>
 
