@@ -10,7 +10,7 @@ function StockBox({userPickedStocks, updateUserPickedStocks,
 
     return (
       
-        <div> 
+        <div className = "stockBoxMain"> 
         <div>{industry}</div>
 
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>

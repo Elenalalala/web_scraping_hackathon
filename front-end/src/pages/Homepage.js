@@ -43,9 +43,9 @@ function Homepage() {
      }
  
      const records = await response.json();
-     console.log(records);
+    //  console.log(records);
      updateStocksDatabase(records);
-     console.log(stocksDatabase);
+    //  console.log(stocksDatabase);
    }
  
    getRecords();
@@ -54,7 +54,7 @@ function Homepage() {
    Object.entries(displayedIndustries).forEach(([industry, stocks]) => copyIndustries.push(industry));
    updateIndustries(copyIndustries);
    return;
- });
+ }, [userPickedStocks]);
 
 
  
