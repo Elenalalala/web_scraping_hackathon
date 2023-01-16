@@ -10,7 +10,7 @@ function Stock({stock, userPickedStocks, idx, updateUserPickedStocks,
     var curIndustry = stock.industry;
     var industryArray = copyOfDisplayedIndustries[curIndustry];
     for (let i = 0; i < industryArray.length; i++){
-      if (industryArray[i].name === stock.name){
+      if (industryArray[i].name == stock.name){
         industryArray.splice(i, 1);
 
         break;
@@ -24,19 +24,18 @@ function Stock({stock, userPickedStocks, idx, updateUserPickedStocks,
 
     return (
       <div className="stockMain">
-  
-        <div className = "stockTitle">Stock Name</div>
-        <div className = "stockContent">{stock.name}</div>
+{/*   
+        <div className = "stockTitle">Stock Name</div> */}
+        <div className = "stockName">{stock.name}</div>
 
         <div className = "stockTitle">Current stock price</div>
-        <div className = "stockContent">{stock.curPrice}</div>
+        <div className = "stockContent">USD{stock.curPrice}</div>
 
         <div className = "stockTitle">Industry</div>
         <div className = "stockContent">{stock.industry}</div>
 
         <div className = "stockTitle">Key metrics</div>
-        <div className = "stockContent">{stock.metricsTitle}</div>
-        <div className = "stockContent">{stock.metricsValue}</div>
+        <div className = "stockMetrics">{stock.metricsTitle}: {stock.metricsValue}</div>
         
         <button className="deleteStock" onClick={deleteStock}>Remove</button>
 

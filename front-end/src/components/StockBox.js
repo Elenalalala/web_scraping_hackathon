@@ -11,7 +11,7 @@ function StockBox({userPickedStocks, updateUserPickedStocks,
     return (
       
         <div className = "stockBoxMain"> 
-        <div>{industry}</div>
+        <div className = "stockBoxTitle">{industry}</div>
 
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
         {/* {userPickedStocks ? Object.entries(displayedIndustries).forEach(([stock, idx]) => 
