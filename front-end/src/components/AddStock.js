@@ -47,18 +47,18 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks,
         <div className="addStockTitle">
 
            
-            <label>  Add stock to compare </label>
+            <label>  <h9>Add stock to compare:  </h9> </label>
 
             <select name = "addStock" 
         onChange={e => addStock(e.target.value)}>
                 <option></option>
-                {stocksDatabase.map((stock) => <option >{stock.name}</option>)}
+                {stocksDatabase.map((stock) => <option>{stock.name}</option>)}
             </select>
                 
 
         </div>
 
-        <div> {message} </div>
+        <div className = "addStockMessage"> {message} </div>
 
       </div>
     );
