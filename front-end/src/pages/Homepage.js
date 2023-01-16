@@ -28,6 +28,8 @@ function Homepage() {
     const [userPickedStocks, updateUserPickedStocks] = useState([])
     const [stocksDatabase, updateStocksDatabase] = useState([])
     const [displayedIndustries, updateDisplayedIndustries] = useState({})
+    const [industries, updateIndustries] = useState([])
+
  
  // This method fetches the records from the database.
  useEffect(() => {
@@ -47,10 +49,15 @@ function Homepage() {
    }
  
    getRecords();
- 
+  //  console.log(userPickedStocks);
+   var copyIndustries = [];
+   Object.entries(displayedIndustries).forEach(([industry, stocks]) => copyIndustries.push(industry));
+   updateIndustries(copyIndustries);
    return;
  });
 
+
+ 
     return (
     <div className="homepageMain">
 
@@ -62,8 +69,15 @@ function Homepage() {
 
     <div className="stockHomepage">
 
+
+    {industries.map((industry) => 
     <StockBox userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}
-    displayedIndustries = {displayedIndustries} updateDisplayedIndustries = {updateDisplayedIndustries} />
+    displayedIndustries = {displayedIndustries} updateDisplayedIndustries = {updateDisplayedIndustries} 
+    industry = {industry}/> 
+    )}
+
+    {/* <StockBox userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}
+    displayedIndustries = {displayedIndustries} updateDisplayedIndustries = {updateDisplayedIndustries} /> */}
 
 
     </div>
