@@ -32,12 +32,12 @@
   bottom: 0;
   width: 100%;
   font-family: 'Nanum Myeongjo', serif;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .homepageMain{
   padding-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 
 }
 
@@ -168,3 +168,32 @@ h9 {
   font-size: 15px;
 }
 
+.introMain{
+  margin-bottom: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.introThirdMain{
+  text-align: left;
+}
+
+h10{
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+
+h11 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h12 {
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+h13{
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  text-align: left;
+}

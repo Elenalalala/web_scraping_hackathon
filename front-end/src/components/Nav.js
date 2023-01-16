@@ -1,5 +1,3 @@
-
-
 function Nav() {
   return (
     <div className="navMain">
