@@ -10,7 +10,7 @@ function Stock({stock, userPickedStocks, idx, updateUserPickedStocks,
     var curIndustry = stock.industry;
     var industryArray = copyOfDisplayedIndustries[curIndustry];
     for (let i = 0; i < industryArray.length; i++){
-      if (industryArray[i].name == stock.name){
+      if (industryArray[i].name === stock.name){
         industryArray.splice(i, 1);
 
         break;
