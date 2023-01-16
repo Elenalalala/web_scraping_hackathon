@@ -13,10 +13,13 @@ function Intro() {
                 
 
          <div>
+            <div>
           <h10 >
-
-
-            Investing can be complex. Financial sites are filled 
+            Investing can be complex. 
+            </h10>
+            </div>
+            <h10>
+            Financial sites are filled 
             with buckets of data which can be overwhelming for first time investors.
             </h10>
             <div>
