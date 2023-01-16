@@ -23,8 +23,8 @@ function Stock({stock, userPickedStocks, idx, updateUserPickedStocks}) {
         <div className = "stockContent">{stock.industry}</div>
 
         <div className = "stockTitle">Key metrics</div>
-        <div className = "stockContent">{stock.metrics}</div>
-        <div className = "stockContent">{stock.metrics}</div>
+        <div className = "stockContent">{stock.metricsTitle}</div>
+        <div className = "stockContent">{stock.metricsValue}</div>
         
         <button className="deleteStock" onClick={deleteStock}>Remove</button>
 
