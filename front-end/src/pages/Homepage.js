@@ -54,7 +54,7 @@ function Homepage() {
    Object.entries(displayedIndustries).forEach(([industry, stocks]) => copyIndustries.push(industry));
    updateIndustries(copyIndustries);
    return;
- }, [userPickedStocks]);
+ }, [userPickedStocks, displayedIndustries]);
 
 
  

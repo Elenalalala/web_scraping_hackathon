@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.js'
 // import Create from './components/Create.js'
 // import RecordList from './components/RecordList.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import{Button, Navbar, Container, Nav, NavDropdown, Image, Row, Col, View} from "react-bootstrap";
+import{Image, Row, Col} from "react-bootstrap";
 
 function App() {
   return (
