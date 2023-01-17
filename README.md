@@ -6,9 +6,10 @@ We created a tool to help budding investors with little-to-no financial backgrou
 You can access the tool here: [link to be added] 
 
 ## technologies.
-- Front-end: React.js, HTML, CSS, deployed on Netlify 
+- Front-end: React.js, HTML, CSS, Google fonts 
 - Back-end: Node.js, MongoDB, deployed on [Heroku] 
 - Web-scraping: Node.js, Puppeteer 
+- Deployment: Netlify, Heroku 
 
 ## key features.
 - Developed a NoSQL database (MongoDB) to store data on stocks
