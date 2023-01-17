@@ -16,7 +16,11 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Implemented an algorithm to sort displayed stocks by industry for easy comparison 
 - Implemented a frontend interface that supports viewing on multiple window sizes
 
-
+## how to use.
+- Pick a stock from the dropdown menu at the top of the navigation bar
+- Pick a second stock that is within the same industry as the first stock. 
+- Understand the key metrics that are being used by professional investors for the industry and compare between stocks 
+- Pick additional stocks as desired, or remove stocks as required. 
 
 
 
