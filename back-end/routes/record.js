@@ -1,5 +1,15 @@
 const express = require("express");
  
+
+const puppeteer = require('puppeteer-extra');
+const pluginStealth = require('puppeteer-extra-plugin-stealth');
+// require executablePath from puppeteer
+const {
+  executablePath
+} = require('puppeteer');
+puppeteer.use(pluginStealth());
+
+
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
@@ -25,14 +35,16 @@ recordRoutes.route("/record").get(function (req, res) {
 });
  
 // This section will help you get a single record by id
-recordRoutes.route("/record/:id").get(function (req, res) {
+recordRoutes.route("/record/:name").get(function (req, res) {
  let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
+ let myquery = { name: req.params.name};
  db_connect
    .collection("records")
    .findOne(myquery, function (err, result) {
      if (err) throw err;
+     console.log(result);
      res.json(result);
+     
    });
 });
  
@@ -54,23 +66,127 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, response) {
+recordRoutes.route("/update/:name").post( async function (req, response) {
  let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
+ let myquery = { name: req.params.name};
+
+
+ async function scrapeProduct(url_name_price_metrics, url_industry){
+  const browser = await puppeteer.launch({
+      // args: ['--no-sandbox',],
+      // headless: false,
+      ignoreHTTPSErrors: true,
+  
+      // add this
+      executablePath: executablePath(),
+    });
+  var page = await browser.newPage();
+  await page.goto(url_industry,{waitUntil: 'networkidle0'});
+
+  await page.waitForXPath('//*[@id="cr_info_mod"]/div[2]/div/div[1]/div[2]/ul/li[2]/div[2]/span[2]');
+  const [industry] = await page.$x('//*[@id="cr_info_mod"]/div[2]/div/div[1]/div[2]/ul/li[2]/div[2]/span[2]');
+
+  text = await industry.getProperty('textContent');
+  const industryText = await text.jsonValue();
+  console.log({industryText});
+
+
+  await page.goto(url_name_price_metrics,{waitUntil: 'networkidle0'});
+
+
+  await page.waitForXPath('/html/body/div[2]/section[1]/div[1]/div/h1/span[1]');
+  const [name] = await page.$x('/html/body/div[2]/section[1]/div[1]/div/h1/span[1]');
+
+  var text = await name.getProperty('textContent');
+  const nameText = await text.jsonValue();
+  
+
+  await page.waitForXPath('//*[@id="quote_val"]');
+  const [price] = await page.$x('//*[@id="quote_val"]');
+
+  text = await price.getProperty('textContent');
+  const priceText = await text.jsonValue();
+
+  if ({industryText}.industryText == ' Financial Services '){
+
+    console.log("financial services metrics");
+
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[4]/td/span[1]');
+    const [metricsTitle] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[4]/td/span[1]');
+  
+    text = await metricsTitle.getProperty('textContent');
+    metricsTitleText = await text.jsonValue();
+  
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[4]/td/span[2]/span');
+    const [metricsValue] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[4]/td/span[2]/span');
+  
+    text = await metricsValue.getProperty('textContent');
+    metricsValueText = await text.jsonValue();
+  
+  } else if ({industryText}.industryText == ' Retail/Wholesale '){
+
+    console.log("retail/wholesale metrics");
+
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr[5]/td/span[1]');
+    const [metricsTitle] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr[5]/td/span[1]');
+  
+    text = await metricsTitle.getProperty('textContent');
+    metricsTitleText = await text.jsonValue();
+  
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr[5]/td/span[2]/span');
+    const [metricsValue] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[2]/div[1]/table/tbody/tr[5]/td/span[2]/span');
+  
+    text = await metricsValue.getProperty('textContent');
+    metricsValueText = await text.jsonValue();
+
+  } else {
+
+    console.log("other industry metrics");
+
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td/span[1]');
+    const [metricsTitle] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td/span[1]');
+  
+    text = await metricsTitle.getProperty('textContent');
+    metricsTitleText = await text.jsonValue();
+  
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td/span[2]/span');
+    const [metricsValue] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[1]/td/span[2]/span');
+  
+    text = await metricsValue.getProperty('textContent');
+    metricsValueText = await text.jsonValue();
+
+  }
+
+  await browser.close();
+
+  return_array = [priceText, metricsTitleText, metricsValueText, industryText ];
+  console.log(return_array);
+  return return_array;
+
+}
+
+
+get_return_array = await scrapeProduct("https://www.wsj.com/market-data/quotes/C/financials", "https://www.wsj.com/market-data/quotes/C/company-people");
+console.log("get return array");
+console.log(get_return_array);
  let newvalues = {
    $set: {
-    name: req.body.name,
-    curPrice: req.body.curPrice,
-    industry: req.body.industry,
-    metricsTitle: req.body.metricsTitle,
-    metricsValue: req.body.metricsValue,
+    name: req.params.name,
+    curPrice: get_return_array[0],
+    industry: get_return_array[3],
+    metricsTitle: get_return_array[1],
+    metricsValue: get_return_array[2],
    },
  };
+
+ console.log(newvalues);
+
  db_connect
    .collection("records")
    .updateOne(myquery, newvalues, function (err, res) {
      if (err) throw err;
      console.log("1 document updated");
+     console.log(res);
      response.json(res);
    });
 });
