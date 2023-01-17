@@ -63,7 +63,8 @@ function Homepage() {
 
 
     <AddStock userPickedStocks = {userPickedStocks} updateUserPickedStocks = {updateUserPickedStocks}
-    stocksDatabase = {stocksDatabase} displayedIndustries = {displayedIndustries} 
+    stocksDatabase = {stocksDatabase} updateStocksDatabase = {updateStocksDatabase} 
+    displayedIndustries = {displayedIndustries} 
     updateDisplayedIndustries = {updateDisplayedIndustries}/>
 
 

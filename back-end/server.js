@@ -146,7 +146,7 @@ async function scrapeProduct(url_name_price_metrics, url_industry){
   console.log({metricsTitleText});
   console.log({metricsValueText});
 
-  sendToDatabase(nameText, priceText, industryText, metricsTitleText, metricsValueText);
+  // sendToDatabase(nameText, priceText, industryText, metricsTitleText, metricsValueText);
 
 await browser.close();
 }

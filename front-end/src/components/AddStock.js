@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks, 
+function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updateUserPickedStocks, 
     displayedIndustries, updateDisplayedIndustries }) {
     
 
-   function addStock(stock){
+    // const [curStockToAdd, updateCurrentStockToAdd] = useState({});
+
+   async function addStock(stock){
 
     for (let i = 0; i < userPickedStocks.length; i++){
 
@@ -18,20 +20,65 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks,
 
             if (stocksDatabase[i].name === stock){
 
-                var copyOfDisplayedIndustries = displayedIndustries;
+                await fetch(`http://localhost:5001/update/${stock}`, {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userPickedStocks[i]),
+                })
+                .catch(error => {
+                    window.alert(error);
+                    return;
+                });
                 
-                if (stocksDatabase[i].industry in copyOfDisplayedIndustries){
-                    copyOfDisplayedIndustries[stocksDatabase[i].industry].push(stocksDatabase[i]);
 
-                } else {
-                    copyOfDisplayedIndustries[stocksDatabase[i].industry] = [stocksDatabase[i]];
-                }
+                async function getRecords() {
+                    const response = await fetch(`http://localhost:5001/record/${stock}`);
+                
+                    // if (!response.ok) {
+                    //   const message = `An error occurred: ${response.statusText}`;
+                    //   window.alert(message);
+                    //   return;
+                    // }
+                
+                    const records = await response.json();
+                    console.log(records);
+                    
+                    return records;
+                  }
+                  
+                  const curStockToAdd = await getRecords();
+                  console.log(curStockToAdd);
+                  var copyOfDisplayedIndustries = displayedIndustries;
+                
+                  if (curStockToAdd.industry in copyOfDisplayedIndustries){
+                      copyOfDisplayedIndustries[curStockToAdd.industry].push(curStockToAdd);
+  
+                  } else {
+                      copyOfDisplayedIndustries[curStockToAdd.industry] = [curStockToAdd];
+                  }
+  
+                  updateDisplayedIndustries(copyOfDisplayedIndustries);
+                  updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, curStockToAdd]);
+                  setMessage(stock + " successfully added below.");
+                  console.log(displayedIndustries);
+                  return;
 
-                updateDisplayedIndustries(copyOfDisplayedIndustries);
-                updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]]);
-                setMessage(stock + " successfully added below.");
-                console.log(displayedIndustries);
-                return;
+                // var copyOfDisplayedIndustries = displayedIndustries;
+                
+                // if (stocksDatabase[i].industry in copyOfDisplayedIndustries){
+                //     copyOfDisplayedIndustries[stocksDatabase[i].industry].push(stocksDatabase[i]);
+
+                // } else {
+                //     copyOfDisplayedIndustries[stocksDatabase[i].industry] = [stocksDatabase[i]];
+                // }
+
+                // updateDisplayedIndustries(copyOfDisplayedIndustries);
+                // updateUserPickedStocks(userPickedStocks =>[...userPickedStocks, stocksDatabase[i]]);
+                // setMessage(stock + " successfully added below.");
+                // console.log(displayedIndustries);
+                // return;
 
             }
         }
