@@ -3,6 +3,8 @@
 ## intro.
 We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from complicated financial websites, stored the extracted data into a NoSQL database, and created an easy-to-use and simple interface to compare stocks within the same industry. 
 
+You can access the tool here: [link to be added] 
+
 ## technologies.
 - Front-end: React.js, HTML, CSS, deployed on Netlify 
 - Back-end: Node.js, MongoDB, deployed on [Heroku] 
@@ -21,6 +23,27 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Pick a second stock that is within the same industry as the first stock. 
 - Understand the key metrics that are being used by professional investors for the industry and compare between stocks 
 - Pick additional stocks as desired, or remove stocks as required. 
+
+## how to run the code locally.
+
+After git cloning this repository, complete the following steps:
+
+Front-end 
+1. Access the front-end folder in a new terminal window 
+2. Download all dependencies with "npm install"
+3. Run the application with "npm start"
+4. A localhost page would appear on your default browser
+
+Back-end 
+1. Access the back-end folder in a new, separate terminal window 
+2. Download all dependencies with "npm install"
+3. Run the application with "node server.js"
+4. If successful, the message "Connected to MongoDB" would appear
+
+Web-scraper 
+1. Access the back-end folder in a new, separate terminal window 
+2. Download all dependencies with "npm install"
+3. Run the application with "node scrapers.js"
 
 
 
