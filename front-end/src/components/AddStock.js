@@ -4,26 +4,14 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks,
     displayedIndustries, updateDisplayedIndustries }) {
     
 
-   async function addStock(stock){
+   function addStock(stock){
 
     for (let i = 0; i < userPickedStocks.length; i++){
 
-        await fetch("http://localhost:5001/update/:name", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-        },
-            body: JSON.stringify(userPickedStocks[i].name),
-        })
-            .catch(error => {
-            window.alert(error);
+        if (userPickedStocks[i].name === stock){
+            setMessage(stock + " was previously added. Please choose another.");
             return;
-        });
-  
-        // if (userPickedStocks[i].name === stock){
-        //     setMessage(stock + " was previously added. Please choose another.");
-        //     return;
-        // }
+        }
     }
 
         for (let i = 0; i < stocksDatabase.length; i++){
@@ -75,6 +63,5 @@ function AddStock({userPickedStocks, stocksDatabase, updateUserPickedStocks,
       </div>
     );
   }
-
   
   export default AddStock;

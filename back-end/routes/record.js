@@ -1,5 +1,3 @@
-//import scrapeProduct from '../server.js';
-require('scrapeProduct');
 const express = require("express");
  
 // recordRoutes is an instance of the express router.
@@ -56,13 +54,9 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/update/:name").post(function (req, response) {
-
+recordRoutes.route("/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
- console.log(req.params.name);
- let myquery = { name: req.params.name };
- scrapeProduct("https://www.wsj.com/market-data/quotes/CHDRY/financials", "https://www.wsj.com/market-data/quotes/CHDRY/company-people");
-
+ let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
    $set: {
     name: req.body.name,
