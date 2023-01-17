@@ -18,14 +18,15 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
 
         for (let i = 0; i < stocksDatabase.length; i++){
 
+            var curTicker = stocksDatabase[i].ticker;
             if (stocksDatabase[i].name === stock){
 
-                await fetch(`http://localhost:5001/update/${stock}`, {
+                await fetch(`http://localhost:5001/update/${curTicker}`, {
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(userPickedStocks[i]),
+                    body: JSON.stringify(stocksDatabase[i]),
                 })
                 .catch(error => {
                     window.alert(error);
@@ -34,7 +35,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
                 
 
                 async function getRecords() {
-                    const response = await fetch(`http://localhost:5001/record/${stock}`);
+                    const response = await fetch(`http://localhost:5001/record/${curTicker}`);
                 
                     // if (!response.ok) {
                     //   const message = `An error occurred: ${response.statusText}`;

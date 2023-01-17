@@ -35,9 +35,9 @@ recordRoutes.route("/record").get(function (req, res) {
 });
  
 // This section will help you get a single record by id
-recordRoutes.route("/record/:name").get(function (req, res) {
+recordRoutes.route("/record/:ticker").get(function (req, res) {
  let db_connect = dbo.getDb();
- let myquery = { name: req.params.name};
+ let myquery = { ticker: req.params.ticker};
  db_connect
    .collection("records")
    .findOne(myquery, function (err, result) {
@@ -53,6 +53,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
    name: req.body.name,
+   ticker: req.body.ticker,
    curPrice: req.body.curPrice,
    industry: req.body.industry,
    metricsTitle: req.body.metricsTitle,
@@ -66,12 +67,20 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/update/:name").post( async function (req, response) {
- let db_connect = dbo.getDb();
- let myquery = { name: req.params.name};
+recordRoutes.route("/update/:ticker").post( async function (req, response) {
 
+  let db_connect = dbo.getDb();
+ let myquery = { ticker: req.params.ticker};
+ console.log("myquery");
+  console.log(myquery);
 
- async function scrapeProduct(url_name_price_metrics, url_industry){
+ async function scrapeProduct(tic){
+
+  const url_name_price_metrics = "https://www.wsj.com/market-data/quotes/" + tic + "/financials";
+  
+  const url_industry = "https://www.wsj.com/market-data/quotes/" + tic + "/company-people";
+  
+
   const browser = await puppeteer.launch({
       // args: ['--no-sandbox',],
       // headless: false,
@@ -100,6 +109,12 @@ recordRoutes.route("/update/:name").post( async function (req, response) {
   var text = await name.getProperty('textContent');
   const nameText = await text.jsonValue();
   
+  // await page.waitForXPath('/html/body/div[2]/section[1]/div[1]/div/h1/span[2]');
+  // const [ticker] = await page.$x('/html/body/div[2]/section[1]/div[1]/div/h1/span[2]');
+
+  // var text = await ticker.getProperty('textContent');
+  // const tickerText = await text.jsonValue();
+
 
   await page.waitForXPath('//*[@id="quote_val"]');
   const [price] = await page.$x('//*[@id="quote_val"]');
@@ -159,19 +174,20 @@ recordRoutes.route("/update/:name").post( async function (req, response) {
 
   await browser.close();
 
-  return_array = [priceText, metricsTitleText, metricsValueText, industryText ];
+  return_array = [priceText, metricsTitleText, metricsValueText, industryText, nameText ];
   console.log(return_array);
   return return_array;
 
 }
 
 
-get_return_array = await scrapeProduct("https://www.wsj.com/market-data/quotes/C/financials", "https://www.wsj.com/market-data/quotes/C/company-people");
+get_return_array = await scrapeProduct(req.params.ticker);
 console.log("get return array");
 console.log(get_return_array);
  let newvalues = {
    $set: {
-    name: req.params.name,
+    name: get_return_array[4],
+    ticker: req.params.ticker,
     curPrice: get_return_array[0],
     industry: get_return_array[3],
     metricsTitle: get_return_array[1],
@@ -186,6 +202,7 @@ console.log(get_return_array);
    .updateOne(myquery, newvalues, function (err, res) {
      if (err) throw err;
      console.log("1 document updated");
+     console.log("res");
      console.log(res);
      response.json(res);
    });

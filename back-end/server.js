@@ -30,9 +30,10 @@ app.listen(port, () => {
 
 
 
-async function sendToDatabase(name, price, industry, metricsTitle, metricsValue) {
+async function sendToDatabase(name, ticker, price, industry, metricsTitle, metricsValue) {
   const newStock = {
     name: name,
+    ticker: ticker,
     curPrice: price,
     industry: industry,
     metricsTitle: metricsTitle,
@@ -55,8 +56,14 @@ async function sendToDatabase(name, price, industry, metricsTitle, metricsValue)
     });
 }
 
-//for Price/Book ratio companies (Banking)
-async function scrapeProduct(url_name_price_metrics, url_industry){
+
+async function scrapeProduct(tic){
+  
+  var url_name_price_metrics = "https://www.wsj.com/market-data/quotes/" + tic + "/financials";
+  
+  var url_industry = "https://www.wsj.com/market-data/quotes/" + tic + "/company-people";
+  
+  
   const browser = await puppeteer.launch({
       // args: ['--no-sandbox',],
       // headless: false,
@@ -83,6 +90,13 @@ async function scrapeProduct(url_name_price_metrics, url_industry){
 
   var text = await name.getProperty('textContent');
   const nameText = await text.jsonValue();
+
+  await page.waitForXPath('/html/body/div[2]/section[1]/div[1]/div/h1/span[2]');
+  const [ticker] = await page.$x('/html/body/div[2]/section[1]/div[1]/div/h1/span[2]');
+
+  var text = await ticker.getProperty('textContent');
+  const tickerText = await text.jsonValue();
+  
   
   await page.waitForXPath('//*[@id="quote_val"]');
   const [price] = await page.$x('//*[@id="quote_val"]');
@@ -142,15 +156,26 @@ async function scrapeProduct(url_name_price_metrics, url_industry){
   }
 
   console.log({nameText});
+  console.log({tickerText});
   console.log({priceText});
   console.log({metricsTitleText});
   console.log({metricsValueText});
 
-  // sendToDatabase(nameText, priceText, industryText, metricsTitleText, metricsValueText);
+  sendToDatabase(nameText, tickerText, priceText, industryText, metricsTitleText, metricsValueText);
 
 await browser.close();
 }
 
 
 
-scrapeProduct("https://www.wsj.com/market-data/quotes/CHDRY/financials", "https://www.wsj.com/market-data/quotes/CHDRY/company-people");
+// scrapeProduct("CHDRY");
+// scrapeProduct("BAC");
+// scrapeProduct("BMO");
+// scrapeProduct("CVS");
+// scrapeProduct("WBA");
+
+
+
+// scrapeProduct("TGT");
+// scrapeProduct("TPR");
+// scrapeProduct("C");
