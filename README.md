@@ -7,7 +7,7 @@ You can access the tool here: [link to be added]
 
 ## technologies.
 - Front-end: React.js, HTML, CSS, Google fonts 
-- Back-end: Node.js, MongoDB, deployed on [Heroku] 
+- Back-end: Node.js, MongoDB
 - Web-scraping: Node.js, Puppeteer 
 - Deployment: Netlify, Heroku 
 
