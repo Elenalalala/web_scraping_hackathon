@@ -9,7 +9,7 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Web-scraping: Node.js, Puppeteer 
 
 ## key features.
-- Developed of a NoSQL database (MongoDB) to store data on stocks
+- Developed a NoSQL database (MongoDB) to store data on stocks
 - Implemented a web scraper that scraps financial data from the reputable Wall Street Journal Markets site to be populated into the database. 
 - Implementated an algorithm within the web scraper to scrap for different key metrics depending on the industry of the stock
 - Designed a user friendly and easy-to-use frontend interface that allows users to add and remove stocks of interest 
