@@ -13,7 +13,7 @@ You can access the tool here: [link to be added]
 
 ## key features.
 - Developed a NoSQL database (MongoDB) to store data on stocks
-- Implemented a web scraper that scraps financial data from the reputable Wall Street Journal Markets site to be populated into the database. 
+- Implemented a web scraper that scraps financial data from the reputable Wall Street Journal Markets site to be populated into the database
 - Implementated an algorithm within the web scraper to scrap for different key metrics depending on the industry of the stock
 - Designed a user friendly and easy-to-use frontend interface that allows users to add and remove stocks of interest 
 - Implemented an algorithm to sort displayed stocks by industry for easy comparison 
