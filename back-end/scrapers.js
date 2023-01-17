@@ -314,5 +314,4 @@ await browser.close();
 
 
 
-
 scrapeProduct("https://www.wsj.com/market-data/quotes/CHDRY/financials", "https://www.wsj.com/market-data/quotes/CHDRY/company-people");

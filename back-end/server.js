@@ -56,7 +56,7 @@ async function sendToDatabase(name, price, industry, metricsTitle, metricsValue)
 }
 
 //for Price/Book ratio companies (Banking)
-async function scrapeProduct(url_name_price_metrics, url_industry){
+export async function scrapeProduct(url_name_price_metrics, url_industry){
   const browser = await puppeteer.launch({
       // args: ['--no-sandbox',],
       // headless: false,
@@ -150,7 +150,6 @@ async function scrapeProduct(url_name_price_metrics, url_industry){
 
 await browser.close();
 }
-
 
 
 scrapeProduct("https://www.wsj.com/market-data/quotes/CHDRY/financials", "https://www.wsj.com/market-data/quotes/CHDRY/company-people");
