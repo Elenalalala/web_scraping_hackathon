@@ -1,2 +1,6 @@
-# web_scraping_hackathon
-# Win the Hackathon!
+# INVESTING MADE SIMPLE 
+Entry for CIT59x 2023 Hackathon 
+
+
+
+
