@@ -1,7 +1,7 @@
 # investing made simple.
 
 ## intro.
-We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from industry-standard web pages, stored the extracted data into a NoSQL database, and created an easy-to-use and simple interface to compare stocks within the same industry.
+We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from industry-standard web pages, stored the extracted data into a NoSQL database for a caching-like behaviour, and created an easy-to-use and simple interface to compare stocks within the same industry.
 
 You can access the tool here: [link to be added]
 
