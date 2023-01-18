@@ -1,5 +1,5 @@
-const { MongoClient } = require("pg");
-const Db = process.env.MONGODB_URI;
+const { MongoClient } = require("mongodb");
+const Db = process.env.MONGODB_URI || 'mongodb://localhost:27017/employees';
 const client = new MongoClient(Db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
