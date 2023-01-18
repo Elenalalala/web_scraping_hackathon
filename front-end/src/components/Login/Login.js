@@ -10,6 +10,9 @@ async function loginUser(credentials) {
     //     'Content-Type': 'application/json'
     //   },
       body: JSON.stringify(credentials)
+    }).catch(error => {
+        window.alert(error);
+        return;
     })
       .then(data => data.json())
 }
