@@ -21,21 +21,33 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
             var curTicker = stocksDatabase[i].ticker;
             if (stocksDatabase[i].name === stock){
 
-                await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
-                    method: "POST",
-                    headers: {
-                    "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(stocksDatabase[i]),
-                })
-                .catch(error => {
-                    window.alert(error);
-                    return;
-                });
+
+                var timeNow = Date.now();
+                console.log(timeNow - stocksDatabase[i].lastUpdated);
+                if ((timeNow - stocksDatabase[i].lastUpdated) > 10800000){
+
+                    console.log("Update required");
+
+                    await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
+                        method: "POST",
+                        headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(stocksDatabase[i]),
+                    })
+                    .catch(error => {
+                        window.alert(error);
+                        return;
+                    });
+                
+                } else {
+                    console.log("No update required");
+                }
+
                 
 
                 async function getRecords() {
-                    const response = await fetch(`hhttps://backend-hackthon.herokuapp.com/record/${curTicker}`);
+                    const response = await fetch(`https://backend-hackthon.herokuapp.com/record/${curTicker}`);
                 
                     // if (!response.ok) {
                     //   const message = `An error occurred: ${response.statusText}`;

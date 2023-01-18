@@ -58,6 +58,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
    industry: req.body.industry,
    metricsTitle: req.body.metricsTitle,
    metricsValue: req.body.metricsValue,
+   lastUpdated: Date.now()
  };
  db_connect.collection("records").insertOne(myobj, function (err, res) {
     console.log("1 document created");
@@ -77,7 +78,6 @@ recordRoutes.route("/update/:ticker").post( async function (req, response) {
  async function scrapeProduct(tic){
 
   const url_name_price_metrics = "https://www.wsj.com/market-data/quotes/" + tic + "/financials";
-  
   const url_industry = "https://www.wsj.com/market-data/quotes/" + tic + "/company-people";
   
 
@@ -114,7 +114,6 @@ recordRoutes.route("/update/:ticker").post( async function (req, response) {
 
   // var text = await ticker.getProperty('textContent');
   // const tickerText = await text.jsonValue();
-
 
   await page.waitForXPath('//*[@id="quote_val"]');
   const [price] = await page.$x('//*[@id="quote_val"]');
@@ -154,6 +153,23 @@ recordRoutes.route("/update/:ticker").post( async function (req, response) {
     text = await metricsValue.getProperty('textContent');
     metricsValueText = await text.jsonValue();
 
+  } else if ({industryText}.industryText == ' Technology '){
+
+    console.log("technology metrics");
+
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[3]/td/span[1]');
+    const [metricsTitle] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[3]/td/span[1]');
+  
+    text = await metricsTitle.getProperty('textContent');
+    metricsTitleText = await text.jsonValue();
+  
+    await page.waitForXPath('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[3]/td/span[2]/span');
+    const [metricsValue] = await page.$x('/html/body/div[2]/section[2]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div[1]/table/tbody/tr[3]/td/span[2]/span');
+  
+    text = await metricsValue.getProperty('textContent');
+    metricsValueText = await text.jsonValue();
+
+
   } else {
 
     console.log("other industry metrics");
@@ -192,6 +208,7 @@ console.log(get_return_array);
     industry: get_return_array[3],
     metricsTitle: get_return_array[1],
     metricsValue: get_return_array[2],
+    lastUpdated: Date.now()
    },
  };
 

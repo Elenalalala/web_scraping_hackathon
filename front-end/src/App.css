@@ -197,3 +197,19 @@ h13{
   font-size: 25px;
   text-align: left;
 }
+
+
+@media screen and (max-width: 600px) {
+  .navMain {
+     font-size: 25px;
+  }
+
+  .introMain{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .footerMain{
+    height: 60px;
+  }
+}

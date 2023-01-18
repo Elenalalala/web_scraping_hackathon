@@ -14,13 +14,6 @@ puppeteer.use(pluginStealth());
 
 const port = process.env.PORT || 5001;
 app.use(cors());
-
-app.use('/login', (req, res) => {
-  res.send({
-    token: 'test123'
-  });
-});
-
 app.use(express.json());
 app.use(require("./routes/record"));
 // get driver connection
@@ -44,7 +37,8 @@ async function sendToDatabase(name, ticker, price, industry, metricsTitle, metri
     curPrice: price,
     industry: industry,
     metricsTitle: metricsTitle,
-    metricsValue: metricsValue
+    metricsValue: metricsValue,
+    lastUpdated: Date.now()
 
   };
   // When a post request is sent to the create url, we'll add a new record to the database.
@@ -171,6 +165,7 @@ async function scrapeProduct(tic){
   sendToDatabase(nameText, tickerText, priceText, industryText, metricsTitleText, metricsValueText);
 
 await browser.close();
+
 }
 
 
