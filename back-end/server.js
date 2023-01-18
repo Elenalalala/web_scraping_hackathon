@@ -19,7 +19,7 @@ app.use(require("./routes/record"));
 // get driver connection
 const dbo = require("./db/conn");
 
-app.use('/login', (req, res) => {
+app.use('./login', (req, res) => {
   // const dbo = require("../db/conn");
   // let db_connect = dbo.getDb("employees");
   // let myquery = { username : req.params.username};
@@ -60,7 +60,7 @@ async function sendToDatabase(name, ticker, price, industry, metricsTitle, metri
   // When a post request is sent to the create url, we'll add a new record to the database.
 
   console.log(newStock);
-  await fetch("http://localhost:5001/record/add", {
+  await fetch("https://backend-hackthon.herokuapp.com/record/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
