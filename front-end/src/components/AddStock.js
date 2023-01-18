@@ -30,9 +30,9 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
 
                     await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
                         method: "POST",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
+                        // headers: {
+                        // "Content-Type": "application/json",
+                        // },
                         body: JSON.stringify(stocksDatabase[i]),
                     })
                     .catch(error => {
