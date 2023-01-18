@@ -20,16 +20,16 @@ app.use(require("./routes/record"));
 const dbo = require("./db/conn");
 
 app.use('/login', (req, res) => {
-  const dbo = require("../db/conn");
-  let db_connect = dbo.getDb("employees");
-  let myquery = { username : req.params.username};
-  db_connect
-   .collection("Logins").findOne(myquery, function (err, result) {
-      if (err) throw err;
-      console.log(result);
-      // res.json(result);
+  // const dbo = require("../db/conn");
+  // let db_connect = dbo.getDb("employees");
+  // let myquery = { username : req.params.username};
+  // db_connect
+  //  .collection("Logins").findOne(myquery, function (err, result) {
+  //     if (err) throw err;
+  //     console.log(result);
+  //     // res.json(result);
       
-    });
+  //   });
   res.send({
     token: 'test123'
   });
