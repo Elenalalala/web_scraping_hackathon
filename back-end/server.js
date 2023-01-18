@@ -30,9 +30,9 @@ app.use('/login', (req, res) => {
       // res.json(result);
       
     });
-  // res.send({
-  //   token: 'test123'
-  // });
+  res.send({
+    token: 'test123'
+  });
 });
 
 app.listen(port, () => {
