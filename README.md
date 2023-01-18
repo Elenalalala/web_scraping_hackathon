@@ -12,12 +12,12 @@ You can access the tool here: [link to be added]
 - Deployment: Netlify, Heroku
 
 ## key features.
-- Developed a NoSQL database (MongoDB) to store data on stocks
-- Implemented a web scraper that scraps financial data from the reputable Wall Street Journal Markets site to be populated into the database
-- Implementated an algorithm within the web scraper to scrap for different key metrics depending on the industry of the stock
-- Designed a user friendly and easy-to-use frontend interface that allows users to add and remove stocks of interest
-- Implemented an algorithm to sort displayed stocks by industry for easy comparison
-- Implemented a frontend interface that supports viewing on multiple window sizes
+- Web scraper that scraps financial data from the reputable Wall Street Journal Markets site in real-time 
+- NoSQL database (MongoDB) which stores data retrieved/updated in the past three hours for a caching-like behaviour which improves app performance 
+- Algorithm within the web scraper to scrap for different key metrics depending on the industry of the stock
+- Interactive and easy-to-use frontend interface that allows users to add and remove stocks of interest
+- Algorithm in the frontend to sort displayed stocks by industry for easy comparison by user 
+- Dynamic frontend interface that supports viewing on computer and phone screen sizes 
 
 ## how to use.
 - Pick a stock from the dropdown menu at the top of the navigation bar
@@ -40,7 +40,7 @@ Back-end
 3. Run the application with "node server.js"
 4. If successful, the message "Connected to MongoDB" would appear
 
-Web-scraper
-1. Access the back-end folder in a new, separate terminal window
-2. Download all dependencies with "npm install"
-3. Run the application with "node scrapers.js"
+Web-scraper to add stocks 
+1. Access the back-end folder, server.js file on a code editor (i.e. VS Code)
+2. Comment out the "//scrapeProduct()" function and include a ticker into the input field 
+3. Run the application with "node server.js" in a new, separate terminal window 
