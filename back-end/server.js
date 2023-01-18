@@ -18,7 +18,15 @@ app.use(express.json());
 app.use(require("./routes/record"));
 // get driver connection
 const dbo = require("./db/conn");
- 
+
+app.use('/login', (req, res) => {
+  const dbo = require("../db/conn");
+  let db_connect = dbo.getDb("employees");
+  res.send({
+    token: 'test123'
+  });
+});
+
 app.listen(port, () => {
   // perform a database connection when server starts
   dbo.connectToServer(function (err) {
