@@ -19,7 +19,7 @@ app.use(require("./routes/record"));
 // get driver connection
 const dbo = require("./db/conn");
 
-app.use('./login', (req, res) => {
+app.use('/login', (req, res) => {
   // const dbo = require("../db/conn");
   // let db_connect = dbo.getDb("employees");
   // let myquery = { username : req.params.username};
