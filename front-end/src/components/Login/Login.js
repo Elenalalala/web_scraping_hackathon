@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 async function loginUser(credentials) {
     return fetch('https://backend-hackthon.herokuapp.com/login', {
       method: 'POST',
+    //   mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json'
       },

@@ -22,9 +22,17 @@ const dbo = require("./db/conn");
 app.use('/login', (req, res) => {
   const dbo = require("../db/conn");
   let db_connect = dbo.getDb("employees");
-  res.send({
-    token: 'test123'
-  });
+  let myquery = { username : req.params.username};
+  db_connect
+   .collection("Logins").findOne(myquery, function (err, result) {
+      if (err) throw err;
+      console.log(result);
+      // res.json(result);
+      
+    });
+  // res.send({
+  //   token: 'test123'
+  // });
 });
 
 app.listen(port, () => {

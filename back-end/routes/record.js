@@ -21,19 +21,19 @@ const dbo = require("../db/conn");
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
-// This section will help you get a single record by id
-recordRoutes.route("/login").get(function (req, res) {
-  let db_connect = dbo.getDb();
-  let myquery = { username : req.params.username};
-  db_connect
-    .collection("Logins")
-    .findOne(myquery, function (err, result) {
-      if (err) throw err;
-      console.log(result);
-      // res.json(result);
+// // This section will help you get a single record by id
+// recordRoutes.route("/login").get(function (req, res) {
+//   let db_connect = dbo.getDb();
+//   let myquery = { username : req.params.username};
+//   db_connect
+//     .collection("Logins")
+//     .findOne(myquery, function (err, result) {
+//       if (err) throw err;
+//       console.log(result);
+//       // res.json(result);
       
-    });
- });
+//     });
+//  });
 
 
 
