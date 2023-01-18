@@ -21,7 +21,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
             var curTicker = stocksDatabase[i].ticker;
             if (stocksDatabase[i].name === stock){
 
-                await fetch(`http://localhost:5001/update/${curTicker}`, {
+                await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json",
@@ -35,7 +35,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
                 
 
                 async function getRecords() {
-                    const response = await fetch(`http://localhost:5001/record/${curTicker}`);
+                    const response = await fetch(`hhttps://backend-hackthon.herokuapp.com/record/${curTicker}`);
                 
                     // if (!response.ok) {
                     //   const message = `An error occurred: ${response.statusText}`;
