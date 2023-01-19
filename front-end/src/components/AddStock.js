@@ -8,6 +8,8 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
 
    async function addStock(stock){
 
+    setMessage("Please wait a moment while we retrieve the stock.....")
+
     for (let i = 0; i < userPickedStocks.length; i++){
 
         if (userPickedStocks[i].name === stock){
@@ -28,7 +30,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
 
                     console.log("Update required");
 
-                    await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
+                    await fetch(`http://localhost:5001/update/${curTicker}`, {
                         method: "POST",
                         // headers: {
                         // "Content-Type": "application/json",
@@ -47,7 +49,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
                 
 
                 async function getRecords() {
-                    const response = await fetch(`https://backend-hackthon.herokuapp.com/record/${curTicker}`);
+                    const response = await fetch(`http://localhost:5001/record/${curTicker}`);
                 
                     // if (!response.ok) {
                     //   const message = `An error occurred: ${response.statusText}`;
