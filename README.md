@@ -33,7 +33,7 @@ Front-end (locally run)
 4. A localhost page would appear on your default browser
 
 Front-end (Netlify)
-You can access the front-end hosted on Netlify here: https://stock-win-hackathon.netlify.app/
+1. You can access the front-end hosted on Netlify here: https://stock-win-hackathon.netlify.app/
 
 Back-end
 1. Access the back-end folder in a new, separate terminal window
