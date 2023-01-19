@@ -1,14 +1,14 @@
-# investing made simple.
+# Investing made simple.
 
-## intro.
+## Intro.
 We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from industry-standard web pages, stored the extracted data into a NoSQL database for a caching-like behaviour, and designed an intuitive and interactive web page to compare stocks within the same industry.
 
-## technologies.
+## Technologies.
 - Front-end: React.js, HTML, CSS, Google fonts, Netlify (deployment)
 - Back-end: Node.js, MongoDB
 - Web-scraping: Node.js, Puppeteer
 
-## key features.
+## Key features.
 - Web scraper that scraps financial data from the reputable Wall Street Journal Markets site in real-time 
 - NoSQL database (MongoDB) which stores data retrieved/updated in the past three hours for a caching-like behaviour which improves app performance 
 - Algorithm within the web scraper to scrap for different key metrics depending on the industry of the stock
@@ -17,13 +17,13 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Dynamic frontend interface that supports viewing on computer and phone screen sizes 
 - Frontend implementation of user login 
 
-## how to use.
+## How to use.
 - Pick a stock from the dropdown menu at the top of the navigation bar
 - Pick a second stock that is within the same industry as the first stock
 - Understand the key metrics that are being used by professional investors for the industry and compare between stocks
 - Pick additional stocks as desired, or remove stocks as required
 
-## how to run the code locally.
+## How to run the code locally.
 After git cloning this repository, complete the following steps:
 
 Front-end (locally run)
