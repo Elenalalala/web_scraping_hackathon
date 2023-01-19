@@ -18,6 +18,7 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Frontend implementation of user login 
 
 ## How to use.
+- Enter login details. For example: Login (User1); Password (User123)
 - Pick a stock from the dropdown menu at the top of the navigation bar
 - Pick a second stock that is within the same industry as the first stock
 - Understand the key metrics that are being used by professional investors for the industry and compare between stocks
