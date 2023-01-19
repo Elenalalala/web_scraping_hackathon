@@ -47,22 +47,6 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
                     console.log("No update required");
                 }
 
-                
-
-                async function getRecords() {
-                    const response = await fetch(`http://localhost:5001/record/${curTicker}`);
-                
-                    // if (!response.ok) {
-                    //   const message = `An error occurred: ${response.statusText}`;
-                    //   window.alert(message);
-                    //   return;
-                    // }
-                
-                    const records = await response.json();
-                    console.log(records);
-                    
-                    return records;
-                  }
                   
                   const curStockToAdd = await getRecords();
                   console.log(curStockToAdd);
@@ -101,6 +85,21 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
         
         console.log(userPickedStocks);
    }
+
+   async function getRecords() {
+    const response = await fetch(`http://localhost:5001/record/${curTicker}`);
+
+    // if (!response.ok) {
+    //   const message = `An error occurred: ${response.statusText}`;
+    //   window.alert(message);
+    //   return;
+    // }
+
+    const records = await response.json();
+    console.log(records);
+    
+    return records;
+  }
 
    const [message, setMessage] = useState("");
 
