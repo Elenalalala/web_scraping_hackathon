@@ -17,13 +17,6 @@ We created a tool to help budding investors with little-to-no financial backgrou
 - Dynamic frontend interface that supports viewing on computer and phone screen sizes 
 - Frontend implementation of user login 
 
-## How to use.
-- Enter login details. For example: Login (User1); Password (User123)
-- Pick a stock from the dropdown menu at the top of the navigation bar
-- Pick a second stock that is within the same industry as the first stock
-- Understand the key metrics that are being used by professional investors for the industry and compare between stocks
-- Pick additional stocks as desired, or remove stocks as required
-
 ## How to run the code locally.
 After git cloning this repository, complete the following steps:
 
@@ -45,3 +38,10 @@ Web-scraper to add stocks
 1. Access the back-end folder, server.js file on a code editor (i.e. VS Code)
 2. Comment out the "//scrapeProduct()" function and include a ticker into the input field 
 3. Run the application with "node server.js" in a new, separate terminal window 
+
+## How to use.
+- Enter login details. For example: Login (User1); Password (User123)
+- Pick a stock from the dropdown menu at end of the page
+- Pick a second stock that is within the same industry as the first stock
+- Understand the key metrics that are being used by professional investors for the industry and compare between stocks
+- Pick additional stocks as desired, or remove stocks as required
