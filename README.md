@@ -3,13 +3,10 @@
 ## intro.
 We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from industry-standard web pages, stored the extracted data into a NoSQL database for a caching-like behaviour, and designed an intuitive and interactive web page to compare stocks within the same industry.
 
-You can access the tool here: [link to be added]
-
 ## technologies.
-- Front-end: React.js, HTML, CSS, Google fonts
+- Front-end: React.js, HTML, CSS, Google fonts, Netlify (deployment)
 - Back-end: Node.js, MongoDB
 - Web-scraping: Node.js, Puppeteer
-- Deployment: Netlify, Heroku
 
 ## key features.
 - Web scraper that scraps financial data from the reputable Wall Street Journal Markets site in real-time 
@@ -18,21 +15,24 @@ You can access the tool here: [link to be added]
 - Interactive and easy-to-use frontend interface that allows users to add and remove stocks of interest
 - Algorithm in the frontend to sort displayed stocks by industry for easy comparison by user 
 - Dynamic frontend interface that supports viewing on computer and phone screen sizes 
+- Frontend implementation of user login 
 
 ## how to use.
 - Pick a stock from the dropdown menu at the top of the navigation bar
-- Pick a second stock that is within the same industry as the first stock.
+- Pick a second stock that is within the same industry as the first stock
 - Understand the key metrics that are being used by professional investors for the industry and compare between stocks
-- Pick additional stocks as desired, or remove stocks as required.
+- Pick additional stocks as desired, or remove stocks as required
 
 ## how to run the code locally.
 After git cloning this repository, complete the following steps:
 
-Front-end
+Front-end (locally run)
 1. Access the front-end folder in a new terminal window
 2. Download all dependencies with "npm install"
 3. Run the application with "npm start"
 4. A localhost page would appear on your default browser
+
+Alternatively, you can access the front-end hosted on Netlify here: https://stock-win-hackathon.netlify.app/
 
 Back-end
 1. Access the back-end folder in a new, separate terminal window
