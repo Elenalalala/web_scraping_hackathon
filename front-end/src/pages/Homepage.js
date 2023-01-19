@@ -34,7 +34,13 @@ function Homepage() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`https://backend-hackthon.herokuapp.com/record/`);
+     const response = await fetch(`https://backend-hackthon.herokuapp.com/record/`,{
+      mode: "no-cors",
+      headers: {
+        // "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000/"
+        },
+     });
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;

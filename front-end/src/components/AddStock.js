@@ -30,9 +30,10 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
 
                     await fetch(`https://backend-hackthon.herokuapp.com/update/${curTicker}`, {
                         method: "POST",
-                        // headers: {
-                        // "Content-Type": "application/json",
-                        // },
+                        headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Origin": "http://localhost:3000/"
+                        },
                         body: JSON.stringify(stocksDatabase[i]),
                     })
                     .catch(error => {
@@ -107,7 +108,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
         <div className="addStockTitle">
 
            
-            <label>  <h9>Add stock to compare:  </h9> </label>
+            <label>  <h5>Add stock to compare:  </h5> </label>
 
             <select name = "addStock" 
         onChange={e => addStock(e.target.value)}>
