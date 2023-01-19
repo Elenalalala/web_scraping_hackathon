@@ -53,7 +53,7 @@ export default function Login({ setToken }) {
       </div>
     </form>
     </div>
-    <img src='https://img.freepik.com/free-vector/woman-investing-getting-profit_74855-11229.jpg?w=2000&t=st=1674091042~exp=1674091642~hmac=b592c0d28db2d8ecaf3d99536dc456e00c7fdc069394561f55a050925d6c6bbc' alt="decorative image"></img>
+    <img src='https://img.freepik.com/free-vector/woman-investing-getting-profit_74855-11229.jpg?w=2000&t=st=1674091042~exp=1674091642~hmac=b592c0d28db2d8ecaf3d99536dc456e00c7fdc069394561f55a050925d6c6bbc' alt="decorative"></img>
     </div>
   )
 }
