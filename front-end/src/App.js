@@ -4,7 +4,7 @@ import Homepage from './pages/Homepage.js'
 import Footer from './components/Footer.js'
 import Nav from './components/Nav.js'
 import Intro from './components/Intro.js'
-// import Login from './components/Login/Login.js';
+import Login from './components/Login/Login.js';
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useToken from './components/userToken.js';
 // import Create from './components/Create.js'
@@ -28,9 +28,9 @@ function App() {
   // const [token, setToken] = useState();
   const {token, setToken} = useToken();
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <div className="App">
         <Nav />
