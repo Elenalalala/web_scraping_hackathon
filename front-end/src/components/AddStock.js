@@ -109,7 +109,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
         <div className="addStockTitle">
 
            
-            <label>  <h5>Add stock to compare:  </h5> </label>
+            <label>  <h5>Add stock to compare</h5> </label>
 
             <select name = "addStock" 
         onChange={e => addStock(e.target.value)}>

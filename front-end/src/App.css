@@ -7,18 +7,19 @@
 
 
 .navMain {
-
   background-color: white;
-  height: 80px;
-  color: rgb(84, 169, 84);
-  padding-top: 25px;
-  text-align: center;
+  height: 100px;
+  color: rgb(84, 169, 115);
+  padding: 25px;
+  text-align: left;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 3;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 40px;
+  border: rgb(145, 215, 145) 10px;
+  box-shadow: 10px 10px 70px 5px rgb(165, 165, 165);
 
 }
 
@@ -26,9 +27,9 @@
 .footerMain{
   padding: 10px;
   height: 40px;
-  background-color: gray;
-  color: white;
-  position: fixed;
+  background-color: lightgray;
+  color: black;
+  /* position: fixed; */
   bottom: 0;
   width: 100%;
   font-family: 'Nanum Myeongjo', serif;
@@ -36,7 +37,7 @@
 }
 
 .homepageMain{
-  padding-top: 100px;
+  /* padding-top: 100px; */
   margin-bottom: 20px;
 
 }
@@ -99,7 +100,7 @@
 
 .addStockMain{
   margin: 10px;
-  position: fixed;
+  /* position: fixed; */
   top: 70px;
   text-align: center;
   background-color: white;
@@ -159,6 +160,13 @@
   color: green;
 }
 
+.addStockTitle h5{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  color: green;
+  text-transform: uppercase;
+}
+
 h9 {
   font-family: 'Nanum Myeongjo', serif;
   font-size: 15px;
@@ -171,12 +179,18 @@ h9 {
 
 .introMain{
   margin-bottom: 80px;
-  padding-left: 200px;
-  padding-right: 200px;
 }
 
 .introThirdMain{
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  /* padding:100px; */
+}
+.introThirdMain div{
+  margin-bottom: 2%;
+  margin-left:4%;
+  margin-right:4%;
 }
 
 h10{

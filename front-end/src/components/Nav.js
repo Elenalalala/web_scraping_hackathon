@@ -3,7 +3,6 @@ function Nav() {
     <div className="navMain">
 
         <div>INVESTING MADE SIMPLE</div>
-
     </div>
   );
 }

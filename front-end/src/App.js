@@ -34,11 +34,11 @@ function App() {
   return (
     <div className="App">
         <Nav />
-          <Homepage />  
         {/* <Create />
         <RecordList />
         <Homepage /> */}
         <Intro />
+        <Homepage />  
         <Footer />
     </div>
   );
