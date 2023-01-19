@@ -34,7 +34,7 @@ export default function Login({ setToken }) {
     }
 
   return(
-    <div>
+    <div id = "login-main">
     <div className="login-wrapper">
     <h1>Please Log In</h1>
     <form onSubmit={handleSubmit}>
@@ -48,7 +48,7 @@ export default function Login({ setToken }) {
         <input type="password" onChange={e => setPassword(e.target.value)}/>
       </label>
       <div>
-        <button type="submit">Login</button>
+        <button id="login-bnt" type="submit">Login</button>
       </div>
       </div>
     </form>

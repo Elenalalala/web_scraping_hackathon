@@ -44,7 +44,7 @@ label{
     position: relative;
 }
 
-button {
+#login-bnt {
     position: absolute;
     left: 25%;
     background-color: #4CAF50; /* Green */
@@ -59,7 +59,7 @@ button {
     border-radius:25px !important;
     margin-top:100px;
   }
-  #root > div{
+ #login-main{
     position: relative;
     display: flex;
     flex-direction: row;
