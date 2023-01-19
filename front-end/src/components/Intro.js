@@ -22,19 +22,19 @@ function Intro() {
             </div>
             <img id = "first-dec" src ="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/07/31220039/Functions-of-Stock-Exchange.png" alt=""></img>
           </div>
-          <a href="#highlight"><img id="down" src="https://cdn.iconscout.com/icon/free/png-256/keyboard-down-arrow-1780093-1518654.png"></img></a>
+          <a href="#highlight"><img id="down" src="https://cdn.iconscout.com/icon/free/png-256/keyboard-down-arrow-1780093-1518654.png" alt=""></img></a>
           <div id= "highlight">HighLight</div>
             <div id="benefit">
               <div>
-                <img src ="https://media.istockphoto.com/id/1233956220/vector/a-young-male-manager-presenting-a-project-statistics-infographics-big-data-millennials-at.jpg?s=612x612&w=0&k=20&c=vMY67k9PeGcoSQfTRO5kSDHAbCsXc0RujYi8TSrfU0g="></img>
+                <img src ="https://media.istockphoto.com/id/1233956220/vector/a-young-male-manager-presenting-a-project-statistics-infographics-big-data-millennials-at.jpg?s=612x612&w=0&k=20&c=vMY67k9PeGcoSQfTRO5kSDHAbCsXc0RujYi8TSrfU0g=" alt=""></img>
                 <h3>help learning the basics of investing.</h3>
               </div>
               <div>
-              <img src= "https://media.istockphoto.com/id/1041244364/vector/seo-reporting-data-monitoring-web-traffic-analytics-big-data-flat-vector-illustration-on.jpg?s=612x612&w=0&k=20&c=pznpyB1jMx1hD8N3KSZx0833lhk5aSdrPPlFqOIArhA="></img>
+              <img src= "https://media.istockphoto.com/id/1041244364/vector/seo-reporting-data-monitoring-web-traffic-analytics-big-data-flat-vector-illustration-on.jpg?s=612x612&w=0&k=20&c=pznpyB1jMx1hD8N3KSZx0833lhk5aSdrPPlFqOIArhA="alt=""></img>
             <h3>Distill the key metrics for each industry. </h3>
             </div>
             <div>
-            <img src = "https://media.istockphoto.com/id/1152082027/vector/financial-consultant-leaning-on-a-stack-of-coins-smiles-friendly-and-waves-with-hand.jpg?s=612x612&w=0&k=20&c=PECBvgHEdqg61ZaCu6aXaRZIgCmou0hGRG5HdKTuLvU="></img>
+            <img src = "https://media.istockphoto.com/id/1152082027/vector/financial-consultant-leaning-on-a-stack-of-coins-smiles-friendly-and-waves-with-hand.jpg?s=612x612&w=0&k=20&c=PECBvgHEdqg61ZaCu6aXaRZIgCmou0hGRG5HdKTuLvU="alt=""></img>
             <h3>focus only on data that is important.</h3>
             </div>
             </div>
