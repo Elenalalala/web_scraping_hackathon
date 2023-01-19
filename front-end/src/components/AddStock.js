@@ -48,7 +48,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
                 }
 
                   
-                  const curStockToAdd = await getRecords();
+                  const curStockToAdd = await getRecords(curTicker);
                   console.log(curStockToAdd);
                   var copyOfDisplayedIndustries = displayedIndustries;
                 
@@ -86,7 +86,7 @@ function AddStock({userPickedStocks, stocksDatabase, updateStocksDatabase, updat
         console.log(userPickedStocks);
    }
 
-   async function getRecords() {
+   async function getRecords(curTicker) {
     const response = await fetch(`http://localhost:5001/record/${curTicker}`);
 
     // if (!response.ok) {
