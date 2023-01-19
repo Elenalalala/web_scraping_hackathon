@@ -1,4 +1,4 @@
-
+import './Intro.css';
 
 
 function Intro() {
@@ -7,32 +7,32 @@ function Intro() {
 
 <div> 
     <div>
-    <h13>Welcome budding investor!</h13>
+    <h3 className='middleText'>Welcome budding investor!</h3>
     </div>
-            <img src={require('../assets/InvestingBag.png')} />
+            <img src={require('../assets/InvestingBag.png')} alt="" />
                 
 
          <div>
             <div>
-          <h10 >
+          <h1>
             Investing can be complex. 
-            </h10>
+            </h1>
             </div>
-            <h10>
+            <h1>
             Financial sites are filled 
             with buckets of data which can be overwhelming for first time investors.
-            </h10>
+            </h1>
             <div>
-           <h10>
+           <h1>
             This tool helps you understand the basics of investing by distilling the key 
             metrics for each industry. 
-            </h10>
+            </h1>
             </div>
 
             <div>
-            <h10>
+            <h1>
             It helps you focus only on data that is important.
-            </h10>
+            </h1>
             </div>
             </div>
             </div>
@@ -44,34 +44,34 @@ function Intro() {
             <div>
 
             <div>
-            <h11>
+            <h2>
                 To start, pick a stock from the dropdown menu above to see what some 
                 of the key investing metrics are for a particular industry. 
-            </h11>
+            </h2>
             </div>
             <br></br>
             <div>
                 
             <div className = "introThirdMain">
-            <h12>
+            <h3 className='middleText'>
                 In our opinion, all else equal:
-                </h12>
+                </h3>
                 <div>
-                <h12>
+                <h3 className='middleText'>
                 1. Companies with lower price to book ratios have higher upside potential
-                </h12>
+                </h3>
                 </div>
                 <div>
-                <h12>
+                <h3 className='middleText'>
                 2. Companies with lower price to earnings ratios have higher upside potential 
                
-                </h12>
+                </h3>
                      </div>
                 <div>
-                <h12>
+                <h3 className='middleText'>
                 3. Companies with higher return to assets percentages have higher upside potential 
                 
-            </h12>
+            </h3>
             </div>
             </div>
             </div>

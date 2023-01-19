@@ -34,8 +34,9 @@ function Homepage() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
+
      const response = await fetch(`http://localhost:5001/record/`);
- 
+     
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
        window.alert(message);

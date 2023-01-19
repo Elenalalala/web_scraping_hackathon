@@ -10,6 +10,9 @@ async function loginUser(credentials) {
     //     'Content-Type': 'application/json'
     //   },
       body: JSON.stringify(credentials)
+    }).catch(error => {
+        window.alert(error);
+        return;
     })
       .then(data => data.json())
 }
@@ -31,9 +34,11 @@ export default function Login({ setToken }) {
     }
 
   return(
+    <div>
     <div className="login-wrapper">
     <h1>Please Log In</h1>
     <form onSubmit={handleSubmit}>
+        <div className='row-wrapper'>
       <label>
         <p>Username</p>
         <input type="text" onChange={e => setUserName(e.target.value)}/>
@@ -43,9 +48,12 @@ export default function Login({ setToken }) {
         <input type="password" onChange={e => setPassword(e.target.value)}/>
       </label>
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit">Login</button>
+      </div>
       </div>
     </form>
+    </div>
+    <img src='https://img.freepik.com/free-vector/woman-investing-getting-profit_74855-11229.jpg?w=2000&t=st=1674091042~exp=1674091642~hmac=b592c0d28db2d8ecaf3d99536dc456e00c7fdc069394561f55a050925d6c6bbc'></img>
     </div>
   )
 }
