@@ -213,4 +213,8 @@ h13{
   .footerMain{
     height: 60px;
   }
+  #login-main{
+    flex-direction: column;
+  }
+
 }
