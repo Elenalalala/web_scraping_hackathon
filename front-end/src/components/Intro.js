@@ -9,7 +9,7 @@ function Intro() {
     <div>
     <h3 className='middleText'>Welcome budding investor!</h3>
     </div>
-            <img src={require('../assets/InvestingBag.png')} />
+            <img src={require('../assets/InvestingBag.png')} alt="" />
                 
 
          <div>
