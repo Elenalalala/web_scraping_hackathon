@@ -53,7 +53,7 @@ export default function Login({ setToken }) {
       </div>
     </form>
     <div id='slogan'>
-    <h2 className='slogan'>Finance can be scary</h2>
+    <h2 className='slogan'>Finance can be complex</h2>
     <h2 className='slogan'>We are here to help!</h2>
     </div>
     </div>
