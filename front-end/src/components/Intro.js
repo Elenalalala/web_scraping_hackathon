@@ -7,7 +7,7 @@ function Intro() {
 
 <div> 
     <div>
-    <h3 className='middleText'>Welcome budding investor!</h3>
+    <h2>Welcome budding investor!</h2>
     </div>
             <img src={require('../assets/InvestingBag.png')} alt="" />
                 
@@ -18,21 +18,20 @@ function Intro() {
             Investing can be complex. 
             </h1>
             </div>
-            <h1>
+            <h3>
             Financial sites are filled 
-            with buckets of data which can be overwhelming for first time investors.
-            </h1>
-            <div>
-           <h1>
-            This tool helps you understand the basics of investing by distilling the key 
+            with buckets of data which can be overwhelming for first time investors. This tool helps you understand the basics of investing by distilling the key 
             metrics for each industry. 
-            </h1>
+            </h3>
+            <div>
+           <h2>
+            </h2>
             </div>
 
             <div>
-            <h1>
+            <h3>
             It helps you focus only on data that is important.
-            </h1>
+            </h3>
             </div>
             </div>
             </div>
