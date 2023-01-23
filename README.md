@@ -3,6 +3,8 @@
 ## Intro.
 We created a tool to help budding investors with little-to-no financial background learn the fundamentals of investing. We used web scraping to extract important metrics from industry-standard web pages, stored the extracted data into a NoSQL database for a caching-like behaviour, and designed an intuitive and interactive web page to compare stocks within the same industry.
 
+We were awarded two awards in the CIT59x 2023 Hackathon: Best Technical Implementation and Honorable Mention. 
+
 ## Technologies.
 - Front-end: React.js, HTML, CSS, Google fonts, Netlify (deployment)
 - Back-end: Node.js, MongoDB
